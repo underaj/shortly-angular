@@ -1,3 +1,23 @@
 <div id='container'>
   <!-- Your html here -->
+  <div class="navigation">
+    <ul>
+      <li><a href='#/links'>Links</a></li>
+      <li><a href='#/shorten'>Shorten</a></li>
+    </ul>
+     <a class="signout" ng-click='signOut()'>Signout</a>
+  </div>
+  <div ng-controller="LinksController">
+    <div ng-repeat="link in data.links">
+      <div class="link">
+        <img src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons-256/3d-glossy-blue-orbs-icons-arrows/004246-3d-glossy-blue-orb-icon-arrows-arrow-redirect-right1-ps.png" style="width: 50px; height: 50px;">
+        <div class="visits">
+          <span class="count">{{link.visits}}</span> visits
+        </div>
+        <div class="title">{{link.title}}</div>
+        <div class="original">{{link.url}}</div>
+        <a ng-href="/{{link.code}}">{{link.baseUrl}}/{{link.code}}</a>
+      </div>
+    </div>
+  </div>
 </div>
